@@ -1,0 +1,16 @@
+<div>
+    <form [formGroup]="validations_form" novalidate (ngSubmit)="onSubmit(validations_form.value)">
+
+        
+          <input maxlength="25" placeholder="Username" formControlName="username" required>
+          <div *ngFor="let validation of username_validation_messages.username">
+            <div  *ngIf="validations_form.get('username').hasError(validation.type) && (validations_form.get('username').dirty || validations_form.get('username').touched)">{{validation.message}}</div>
+          </div>
+          <input   type="submit"  value="Check">
+          
+          
+    </form> 
+    
+</div>
+{{subdata}} 
+<!-- [disabled]="!validations_form.valid" -->
